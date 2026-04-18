@@ -2,7 +2,8 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 
-const geocodeRoutes = require('./routes/geocodeRoutes');
+const geocodeRoutes = require('./src/routes/geocodeRoutes');
+const routeRoutes = require('./src/routes/routeRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -12,6 +13,7 @@ app.use(express.json());
 
 // Routes
 app.use('/api/geocode', geocodeRoutes);
+app.use('/api/route', routeRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
